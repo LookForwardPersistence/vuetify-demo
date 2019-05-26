@@ -11,7 +11,39 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+        children:[{
+            path: '/recent',
+            component:()=> import('./components/HelloWorld.vue'),
+            children:[
+                {
+                    path:'/recent/', //默认项目
+                    component:()=>import('./components/ShowRoom.vue')
+                },
+                {
+                    path:'/recent/t2Showroom',
+                    component:()=>import('./components/ShowRoom.vue')
+                },
+                {
+                    path:'/recent/t2Corridor',
+                    component:()=>import('./components/ShowRoom.vue')
+                },
+                {
+                    path:'/recent/t6Showroom',
+                    component:()=>import('./components/ShowRoom.vue')
+                },
+                {
+                    path:'/recent/vip',
+                    component:()=>import('./components/ShowRoom.vue')
+                }
+            ]
+        },{
+            path: '/favorites',
+            component:()=> import('./views/About.vue')
+        },{
+            path: '/nearby',
+            component:()=> import('./views/About.vue')
+        }]
     },
     {
       path: '/about',
